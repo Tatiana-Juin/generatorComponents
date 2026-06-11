@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Blocks({key,text}) {
+export default function Blocks({text}) {
   return (
     <div>
-        <p key={key}>{text}</p>
+        <p>{text}</p>
     </div>
   )
 }

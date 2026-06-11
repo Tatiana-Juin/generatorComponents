@@ -1,12 +1,11 @@
-import { useState } from "react"
-import { DEFAULT_BLOCKS } from "../data/components"
 
 
-export default function ButtonComponents({text,id}) {
-  const [textComponents,setTextComponents] = useState("");
+
+export default function ButtonComponents({text,id,onClick}) {
+
   return (
     <div>
-        <button className="btn-components" value={id}> {text} </button>
+        <button className="btn-components" value={id} onClick={onClick}> {text} </button>
     </div>
   )
 }
