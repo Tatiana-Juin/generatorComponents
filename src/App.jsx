@@ -3,8 +3,7 @@ import { COMPONENTS, DEFAULT_BLOCKS,BLOCK_TYPES } from './data/components';
 import ButtonComponents from './components/ButtonComponents';
 import ButtonBlocks from './components/ButtonBlocks';
 import Blocks from './components/Blocks';
-import ButtonCode from './components/ButtonCode';
-
+import Header from './components/Header';
 
 
 export default function App() {
@@ -12,17 +11,14 @@ export default function App() {
 
   return (
     <>
-      <header className='header'>
-        <h1>GeneratorComponents</h1>
-        <ButtonCode text={"Generer le code"} />
-      </header>
+    <Header />
       <main>
         <aside>
             <h2>Modele de base </h2>
             {/* Afficher juste les composants card et form */}
               {COMPONENTS.map(component =>(
               // Bouton pour les components card et formulaire 
-                <ButtonComponents key={component.id} text={component.name} />
+                <ButtonComponents key={component.id} id={component.id} text={component.name} />
               ))}
             {/* afficher les block a ajouter  */}
             <h2>Blocks</h2>
