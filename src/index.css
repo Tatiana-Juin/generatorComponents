@@ -1,4 +1,4 @@
-
+/* HEADER */
 .header{
     display: flex;
     flex-direction: row;
@@ -7,7 +7,7 @@
     margin-top: 15px;
     
 }
-
+/* BSTYLE DU BOUTON CODE  */
 .btn-code{
     width:150px;
     height: 50px;
@@ -18,19 +18,15 @@
     cursor: pointer;
 }
 .btn-components {
- 
-
   padding: 10px 24px;
   border: 1.5px solid #E5E7EB;
   border-radius: 6px;
   background-color: transparent;
   color: #1a1a1a;
- 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.02em;
- 
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -38,7 +34,7 @@
   margin-bottom: 10px;
 }
 
-/* Underline slide effect on hover */
+
 .btn-components::after {
   content: '';
   position: absolute;
@@ -70,9 +66,25 @@
   outline: 2px solid #2563EB;
   outline-offset: 3px;
 }
-/* Pour les blocks a ajouter  */
+
+main{
+  display: flex;
+}
+
+aside{
+  height:100vh;
+  width:30vw;
+}
+/* POUR LES BLOCS AJOUTER  */
 .blocks{
     display: flex;
     flex-direction: column;
     width:10vw;
+}
+
+/* pour les blocks par defaut  */
+.blockDefault{
+  display: flex;
+  flex-direction: column;
+  
 }

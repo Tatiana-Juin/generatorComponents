@@ -6,8 +6,6 @@ import Blocks from './components/Blocks';
 import Header from './components/Header';
 import { useState } from "react"
 
-
-
 export default function App() {
   // recuperer id de l'element 
  const [selectedId, setSelectedId] = useState(null);
@@ -34,15 +32,15 @@ export default function App() {
             <h2>Blocks</h2>
             <div className='blocks'>
               {BLOCK_TYPES.map(blockType =>(
-              
                 <ButtonBlocks key={blockType.type} type={blockType.type} />
               ))}
             </div>
 
            
         </aside>
+
           {/* bloc par defaut  */}
-         <div>
+         <div class="blockDefault">
           <h2>Structure des blocks de {selectedId}</h2>
             {blocks.map(block => (
                 <Blocks key={block.id} text={block.type} />
