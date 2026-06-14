@@ -7,10 +7,16 @@ import Header from './components/Header';
 import { useState } from "react"
 
 export default function App() {
-  // recuperer id de l'element 
- const [selectedId, setSelectedId] = useState(null);
+  // recuperer id de l'element, components
+ const [selectedIdComponent, setSelectedIdComponent] = useState(null);
+//  Recuperer le type du block que j'ai cliquer 
+const [idBlock,setIdBlock] = useState(null);
 //  pour dire si le block existe avec id je recupere les block par defaut sinon je creer un tableau vide 
-  const blocks = selectedId ? DEFAULT_BLOCKS[selectedId] : [];
+  const blocks = selectedIdComponent ? DEFAULT_BLOCKS[selectedIdComponent] : [];
+
+  function handleClick(idBlock){
+    console.log(idBlock);
+  }
   return (
     <>
     <Header />
@@ -24,7 +30,7 @@ export default function App() {
                   key={component.id} 
                   id={component.id} 
                   text={component.name}
-                  onClick={() => setSelectedId(component.id)} 
+                  onClick={() => setSelectedIdComponent(component.id)} 
                 />
               ))}
               
@@ -32,16 +38,14 @@ export default function App() {
             <h2>Blocks</h2>
             <div className='blocks'>
               {BLOCK_TYPES.map(blockType =>(
-                <ButtonBlocks key={blockType.type} type={blockType.type} />
+                <ButtonBlocks key={blockType.type} type={blockType.type} onClick={() => handleClick(blockType.type)}  />
               ))}
             </div>
-
-           
         </aside>
 
           {/* bloc par defaut  */}
          <div className="blockDefault">
-          <h2>Structure des blocks de {selectedId}</h2>
+          <h2>Structure des blocks de {selectedIdComponent}</h2>
             {blocks.map(block => (
                 <Blocks key={block.id} text={block.type} />
             ))}

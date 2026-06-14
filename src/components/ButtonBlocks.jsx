@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function ButtonBlocks({type}) {
+export default function ButtonBlocks({type,onClick}) {
   return (
-        <button className='btn-components'> {type} </button>
+        <button className='btn-components' onClick={onClick}> {type} </button>
     
   )
 }
