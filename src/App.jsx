@@ -40,7 +40,7 @@ export default function App() {
         </aside>
 
           {/* bloc par defaut  */}
-         <div class="blockDefault">
+         <div className="blockDefault">
           <h2>Structure des blocks de {selectedId}</h2>
             {blocks.map(block => (
                 <Blocks key={block.id} text={block.type} />

@@ -88,3 +88,14 @@ aside{
   flex-direction: column;
   
 }
+
+/* STYLE POUR UN BLOCKS  */
+.oneBlock{
+   border: 1.5px solid #E5E7EB;
+    border-radius: 6px;
+    margin-top:10px;
+}
+
+.oneBlock p{
+  text-align: center;
+}
