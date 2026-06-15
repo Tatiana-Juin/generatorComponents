@@ -3,194 +3,152 @@
 
 :root {
   --bg-body: #f8fafc;
-  --bg-surface: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --text-light: #94a3b8;
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --border-light: #e2e8f0;
-  --border-focus: #c7d2fe;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --bg-surf: #ffffff;
+  --txt-main: #1e293b;
+  --txt-mut: #64748b;
+  --txt-lt: #94a3b8;
+  --border: #e2e8f0;
+  --border-foc: #c7d2fe;
+  --sh-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --sh-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg-body);
-  color: var(--text-main);
-  overflow: hidden; /* Évite le scroll global, la gestion se fait dans les colonnes */
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-body); 
+  color: var(--txt-main);
+  overflow: hidden;
 }
+/* --- CLASSES MUTUALISÉES (FLEXBOX GLOBAL) --- */
+
+.header, .btn-code, .btn-components, main, .oneBlock,.blocks, .blockDefault { 
+  display: flex; 
+}
+.header, .btn-code, .btn-components, .oneBlock { 
+  align-items: center; 
+}
+.blocks, .blockDefault {  
+  flex-direction: column; 
+}
+
+/* STYLE COMMUN COMPOSANT ET BLOCKS  */
+.btn-code, .btn-components, .oneBlock { 
+  transition: all 0.2s ease; 
+}
+.btn-components, .oneBlock { 
+  background: var(--bg-surf); 
+  border: 1px solid var(--border); 
+  border-radius: 0.75rem; 
+}
+/* LARGEUR COMMUNE CENTRAL*/
+.blockDefault h2, .oneBlock { 
+  width: 100%; 
+  max-width: 42rem; 
+}
+
 
 /* --- HEADER --- */
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  justify-content: space-between; 
   padding: 1rem 1.5rem;
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-light);
-  position: sticky;
-  top: 0;
+  background: var(--bg-surf); 
+  border-bottom: 1px solid var(--border);
+  position: sticky; 
+  top: 0; 
   z-index: 10;
 }
-
 .header h1 {
-  font-size: 1.25rem;
+  font-size: 1.25rem; 
   font-weight: 700;
-  color:var(--primary-hover);
   
 }
-/* POUR LE BOUTON CODE  */
+
+/* --- BOUTONS --- */
 .btn-code {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #0f172a;
-  color: white;
-  padding: 0.625rem 1.25rem;
-  border: none;
+  gap: 0.5rem; 
+  background: #0f172a; 
+  color: #fff;
+  padding: 0.625rem 1.25rem; 
+  border: none; 
   border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.875rem; 
+  font-weight: 500; 
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-code:hover {
-  background-color: #1e293b;
-  box-shadow: var(--shadow-md);
-}
-
-/* --- MAIN  --- */
-main {
-  display: flex;
-  height: calc(100vh - 73px); 
-  width: 100%;
-}
-
-/* --- ASIDE (COLONNE DE GAUCHE) --- */
-aside {
-  width: 20%;
-  min-width: 250px;
-  max-width: 300px;
-  height: 100%;
-  background-color: var(--bg-surface);
-  border-right: 1px solid var(--border-light);
-  padding: 1.5rem;
-  overflow-y: auto;
-}
-
-aside h2 {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 2rem 0 1rem 0;
-  
-}
-
-aside h2:first-of-type {
-  margin-top: 0;
-}
-
-/* --- BOUTONS LATERAUX (MODÈLES ET OUTILS) --- */
-.blocks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
+  box-shadow: var(--sh-sm);
 }
 
 .btn-components {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-light);
-  border-radius: 0.75rem;
-  background-color: var(--bg-surface);
-  color: var(--text-main);
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  width: 100%; 
+  padding: 0.75rem 1rem; 
   margin-bottom: 0.75rem;
+  color: var(--txt-main); 
+  font: inherit; 
+  font-size: 0.875rem;
+  font-weight: 500; 
+  cursor: pointer;
 }
 
-.btn-components:hover {
-  background-color: #f8fafc;
-  border-color: #cbd5e1;
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-1px);
+/* --- LAYOUT PRINCIPAL (MAIN & ASIDE) --- */
+main { 
+  height: calc(100vh - 73px); 
+}
+/* COLONNE DE GAUCHE  */
+aside {
+  width: 20%; 
+  min-width: 250px; 
+  max-width: 300px; 
+  height: 100%;
+  background: var(--bg-surf); 
+  border-right: 1px solid var(--border);
+  padding: 1.5rem; 
+  overflow-y: auto;
+}
+aside h2 {
+  font-size: 0.75rem; 
+  font-weight: 700; 
+  color: var(--txt-lt);
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+  margin: 2rem 0 1rem;
+}
+/* aside h2:first-of-type { 
+  margin-top: 0; 
+} */
+
+.blocks { 
+  gap: 0.75rem; 
 }
 
-.btn-components:active {
-  transform: translateY(0);
-}
-
-.blocks .btn-components {
-  margin-bottom: 0; 
-}
-
-/* --- ZONE DE CONSTRUCTION (COLONNE DU MILIEU) --- */
+/* --- ZONE CENTRALE (BUILDER) --- */
 .blockDefault {
   flex: 1; 
-  background-color: var(--bg-body);
-  padding: 2.5rem;
+  padding: 2.5rem; 
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
+}
+.blockDefault h2 { 
+  font-size: 1.125rem; 
+  font-weight: 700; 
+  margin-bottom: 1.5rem; 
 }
 
-.blockDefault h2 {
-  width: 100%;
-  max-width: 42rem; 
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 1.5rem;
-}
-
-/* --- DESIGN D'UN BLOC INDIVIDUEL  --- */
+/* --- DESIGN D'UN BLOC INDIVIDUEL --- */
 .oneBlock {
-  width: 100%;
-  max-width: 42rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
-  border-radius: 0.75rem;
   padding: 1.25rem 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  font-weight: 600;
+   margin-bottom: 1rem;
+  box-shadow: var(--sh-sm); 
+  color: var(--txt-mut);
+  font-size: 0.875rem; 
+  font-weight: 600; 
   text-transform: uppercase;
   letter-spacing: 0.025em;
-  display: flex;
-  align-items: center;
 }
-
-.oneBlock:hover {
-  border-color: var(--border-focus);
-  box-shadow: var(--shadow-md);
-}
-
-.oneBlock p {
-  text-align: left;
-  margin: 0;
+.oneBlock:hover , .btn-components:hover { 
+  border-color: var(--border-foc); 
+  box-shadow: var(--sh-md); 
 }
