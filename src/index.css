@@ -1,101 +1,196 @@
-/* HEADER */
-.header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width:90vw;
-    margin-top: 15px;
-    
+/* --- VARIABLES ET RESET --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --border-light: #e2e8f0;
+  --border-focus: #c7d2fe;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-/* BSTYLE DU BOUTON CODE  */
-.btn-code{
-    width:150px;
-    height: 50px;
-    border-radius: 15px;
-    background-color: black;
-    color: white;
-    font-weight: bolder;
-    cursor: pointer;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.btn-components {
-  padding: 10px 24px;
-  border: 1.5px solid #E5E7EB;
-  border-radius: 6px;
-  background-color: transparent;
-  color: #1a1a1a;
+
+body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 14px;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  overflow: hidden; /* Évite le scroll global, la gestion se fait dans les colonnes */
+}
+
+/* --- HEADER --- */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color:var(--primary-hover);
+  
+}
+/* POUR LE BOUTON CODE  */
+.btn-code {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0f172a;
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-  margin-bottom: 10px;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
 }
 
+.btn-code:hover {
+  background-color: #1e293b;
+  box-shadow: var(--shadow-md);
+}
 
-.btn-components::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #2563EB;
-  transition: width 0.25s ease;
-}
- 
-.btn-components:hover {
-  border-color: #2563EB;
-  color: #2563EB;
-  transform: translateY(-1px);
-}
- 
-.btn-components:hover::after {
+/* --- MAIN  --- */
+main {
+  display: flex;
+  height: calc(100vh - 73px); 
   width: 100%;
 }
- 
-.btn-components:active {
-  transform: translateY(0px);
-  border-color: #1d4ed8;
-  color: #1d4ed8;
-}
- 
-.btn-components:focus-visible {
-  outline: 2px solid #2563EB;
-  outline-offset: 3px;
+
+/* --- ASIDE (COLONNE DE GAUCHE) --- */
+aside {
+  width: 20%;
+  min-width: 250px;
+  max-width: 300px;
+  height: 100%;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-light);
+  padding: 1.5rem;
+  overflow-y: auto;
 }
 
-main{
-  display: flex;
-}
-
-aside{
-  height:100vh;
-  width:30vw;
-}
-/* POUR LES BLOCS AJOUTER  */
-.blocks{
-    display: flex;
-    flex-direction: column;
-    width:10vw;
-}
-
-/* pour les blocks par defaut  */
-.blockDefault{
-  display: flex;
-  flex-direction: column;
+aside h2 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 2rem 0 1rem 0;
   
 }
 
-/* STYLE POUR UN BLOCKS  */
-.oneBlock{
-   border: 1.5px solid #E5E7EB;
-    border-radius: 6px;
-    margin-top:10px;
+aside h2:first-of-type {
+  margin-top: 0;
 }
 
-.oneBlock p{
-  text-align: center;
+/* --- BOUTONS LATERAUX (MODÈLES ET OUTILS) --- */
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-components {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0.75rem;
+}
+
+.btn-components:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.btn-components:active {
+  transform: translateY(0);
+}
+
+.blocks .btn-components {
+  margin-bottom: 0; 
+}
+
+/* --- ZONE DE CONSTRUCTION (COLONNE DU MILIEU) --- */
+.blockDefault {
+  flex: 1; 
+  background-color: var(--bg-body);
+  padding: 2.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.blockDefault h2 {
+  width: 100%;
+  max-width: 42rem; 
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+/* --- DESIGN D'UN BLOC INDIVIDUEL  --- */
+.oneBlock {
+  width: 100%;
+  max-width: 42rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+}
+
+.oneBlock:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
+}
+
+.oneBlock p {
+  text-align: left;
+  margin: 0;
 }
