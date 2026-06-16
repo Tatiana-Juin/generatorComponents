@@ -148,6 +148,7 @@ aside h2 {
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
+/* POUR LE HOVER DES BOUTON  */
 .oneBlock:hover , .btn-components:hover { 
   border-color: var(--border-foc); 
   box-shadow: var(--sh-md); 

@@ -9,11 +9,13 @@ import { useState } from "react"
 export default function App() {
   // recuperer id de l'element, components
  const [selectedIdComponent, setSelectedIdComponent] = useState(null);
-//  Recuperer le type du block que j'ai cliquer 
-const [idBlock,setIdBlock] = useState(null);
-//  pour dire si le block existe avec id je recupere les block par defaut sinon je creer un tableau vide 
-  const blocks = selectedIdComponent ? DEFAULT_BLOCKS[selectedIdComponent] : [];
 
+
+  // Pour ajouter un block 
+  const [block,setBlock] = useState([]);
+  //  pour dire si le block existe avec id je recupere les block par defaut sinon je creer un tableau vide 
+  const blocks = selectedIdComponent ? DEFAULT_BLOCKS[selectedIdComponent] : [];
+  // pour recuperer id du blocks 
   function handleClick(idBlock){
     console.log(idBlock);
   }
@@ -38,7 +40,11 @@ const [idBlock,setIdBlock] = useState(null);
             <h2>Blocks</h2>
             <div className='blocks'>
               {BLOCK_TYPES.map(blockType =>(
-                <ButtonBlocks key={blockType.type} type={blockType.type} onClick={() => handleClick(blockType.type)}  />
+                <ButtonBlocks 
+                  key={blockType.type} 
+                  type={blockType.type} 
+                  onClick={() => handleClick(blockType.type)}  
+                />
               ))}
             </div>
         </aside>
