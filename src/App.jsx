@@ -14,11 +14,17 @@ export default function App() {
 
   // Pour ajouter un block 
   const [block,setBlock] = useState([]);
+
+  // Pour afficher un message erreur 
+  const [errors, setErrors] = useState("");
+
   //Utilise useEffect pour definir les blocks par defaut quand on clique sur card 
   useEffect(() =>{
     // si on selectionne un element alors on affiche ce par defaut 
     if(selectedIdComponent){
-      setBlock(DEFAULT_BLOCKS[selectedIdComponent])
+      setBlock(DEFAULT_BLOCKS[selectedIdComponent]);
+      // ajoute setErrors pour effacer le message erreur au cas ou il est pas selectioner de card , components 
+       setErrors("");
     }
     else{
       setBlock([]);
@@ -28,7 +34,18 @@ export default function App() {
   
   // pour recuperer id du blocks 
   function handleClick(idBlock){
-    console.log(idBlock);
+  
+    if(selectedIdComponent){
+      
+      console.log(selectedIdComponent);
+      console.log(idBlock);
+      
+    }
+    else{
+       setErrors("Erreur tu doit selectionner un composant avabt d'ajouter un bloc ");
+       
+    }
+   
   }
   return (
     <>
@@ -62,7 +79,10 @@ export default function App() {
 
           {/* bloc par defaut  */}
          <div className="blockDefault">
-          <h2>Structure des blocks de {selectedIdComponent}</h2>
+          
+          <h2>Structure des blocks de 
+            {selectedIdComponent}</h2>
+            <p>{errors}</p>
             {block.map(blocks => (
                 <Blocks key={blocks.id} text={blocks.type} />
             ))}
