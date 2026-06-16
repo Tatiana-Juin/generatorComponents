@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { COMPONENTS, DEFAULT_BLOCKS,BLOCK_TYPES } from './data/components';
 import ButtonComponents from './components/ButtonComponents';
 import ButtonBlocks from './components/ButtonBlocks';
@@ -13,8 +14,18 @@ export default function App() {
 
   // Pour ajouter un block 
   const [block,setBlock] = useState([]);
-  //  pour dire si le block existe avec id je recupere les block par defaut sinon je creer un tableau vide 
-  const blocks = selectedIdComponent ? DEFAULT_BLOCKS[selectedIdComponent] : [];
+  //Utilise useEffect pour definir les blocks par defaut quand on clique sur card 
+  useEffect(() =>{
+    // si on selectionne un element alors on affiche ce par defaut 
+    if(selectedIdComponent){
+      setBlock(DEFAULT_BLOCKS[selectedIdComponent])
+    }
+    else{
+      setBlock([]);
+    }
+  }, [selectedIdComponent]);
+
+  
   // pour recuperer id du blocks 
   function handleClick(idBlock){
     console.log(idBlock);
@@ -52,8 +63,8 @@ export default function App() {
           {/* bloc par defaut  */}
          <div className="blockDefault">
           <h2>Structure des blocks de {selectedIdComponent}</h2>
-            {blocks.map(block => (
-                <Blocks key={block.id} text={block.type} />
+            {block.map(blocks => (
+                <Blocks key={blocks.id} text={blocks.type} />
             ))}
           </div>
 
