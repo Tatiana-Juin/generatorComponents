@@ -34,16 +34,20 @@ export default function App() {
   
   // pour recuperer id du blocks 
   function handleClick(idBlock){
-  
+    // pour verifier qu'un composant a etait selectionner 
     if(selectedIdComponent){
-      
-      console.log(selectedIdComponent);
-      console.log(idBlock);
-      
+      // Je creer un nouvelle objet avec le type  
+      const defaultValuesBlock = {
+        id: Date.now(),
+        type : idBlock,
+        
+      };
+      // pour ajouter a mes blocks mes nouveau blocks par defaut 
+      setBlock([...block,defaultValuesBlock]);
+
     }
     else{
        setErrors("Erreur tu doit selectionner un composant avabt d'ajouter un bloc ");
-       
     }
    
   }
