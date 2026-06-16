@@ -47,7 +47,7 @@ export default function App() {
 
     }
     else{
-       setErrors("Erreur tu doit selectionner un composant avabt d'ajouter un bloc ");
+       setErrors("Erreur tu doit selectionner un composant avant d'ajouter un bloc ");
     }
    
   }
@@ -84,8 +84,8 @@ export default function App() {
           {/* bloc par defaut  */}
          <div className="blockDefault">
           
-          <h2>Structure des blocks de 
-            {selectedIdComponent}</h2>
+          <h2>Structure des blocks de  {selectedIdComponent}</h2>
+          {/* pour afficher le message  */}
             <p>{errors}</p>
             {block.map(blocks => (
                 <Blocks key={blocks.id} text={blocks.type} />
