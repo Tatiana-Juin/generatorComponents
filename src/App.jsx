@@ -10,6 +10,7 @@ export default function App() {
     block,
     errors,
     handleClick,
+    removeBlock
   } = useComponentBuilder();
  
   return (
@@ -24,6 +25,7 @@ export default function App() {
           selectedIdComponent={selectedIdComponent}
           block={block}
           errors={errors}
+          removeBlock={removeBlock}
         />
       </main>
     </>

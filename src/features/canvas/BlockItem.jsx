@@ -1,7 +1,7 @@
-export default function BlockItem({ block }) {
+export default function BlockItem({ block,removeBlock }) {
  
   function handleDelete() {
-    console.log(block.type);
+    removeBlock(block.id)
   }
  
   return (

@@ -41,11 +41,18 @@ export function useComponentBuilder() {
    
     }
 
+    function removeBlock(id){
+      // pour filter les blocks par rapport a id 
+      const newBlocks = block.filter(b => b.id !== id);
+      setBlock(newBlocks);
+    }
+
  return {
     selectedIdComponent,
     setSelectedIdComponent,
     block,
     errors,
     handleClick,
+    removeBlock,
   };
 }
