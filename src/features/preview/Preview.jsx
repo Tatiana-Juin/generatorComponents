@@ -1,3 +1,4 @@
+import { useState } from "react"
 function renderBlock(block){
     switch(block.type){
         case 'image':
@@ -18,8 +19,16 @@ function renderBlock(block){
 }
 
 export default function Preview({selectedIdComponent,block}) {
+    const [showPreview, setShowPreview] = useState(false);
+
+    function handleShow(){
+        setShowPreview(!showPreview);
+    }
   return (
-    <div className={selectedIdComponent}>
+    <div>
+        <button onClick={handleShow}>Preview</button>
+        {showPreview ?(
+            <div className={selectedIdComponent}>
         {block.map(b =>(
             <div key={b.id}>
                 {renderBlock(b)}
@@ -27,5 +36,10 @@ export default function Preview({selectedIdComponent,block}) {
         ))}
 
     </div>
+        ) : (
+            <p>Clique sur Preview pour voir le resultat</p>
+        )}
+    </div>
+    
   )
 }
