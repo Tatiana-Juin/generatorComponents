@@ -4,7 +4,7 @@ function renderBlock(block){
         case 'image':
             return <img src="https://placehold.co/400x200" alt="image par defaut" />
             
-        case  'heading' : 
+        case  'title' : 
             return <h2>Titre par defaut </h2>
             
         case 'text' : 
@@ -12,18 +12,26 @@ function renderBlock(block){
             
         case 'button':
             return <button>Bouton</button>
-            
+        case 'divider':
+             return <hr />
+        case 'link':
+            return <a href="#">Lien</a> 
+        case 'input':
+            return <input type="text" name="" id="" disabled />  
         default:
             return <p>Cela n'existe pas</p>
     }
 }
 
 export default function Preview({selectedIdComponent,block}) {
+
     const [showPreview, setShowPreview] = useState(false);
 
+    // switch entre voir et pas voir le résultat
     function handleShow(){
         setShowPreview(!showPreview);
     }
+
   return (
     <div>
         <button onClick={handleShow}>Preview</button>
@@ -35,7 +43,7 @@ export default function Preview({selectedIdComponent,block}) {
             </div>
         ))}
 
-    </div>
+            </div>
         ) : (
             <p>Clique sur Preview pour voir le resultat</p>
         )}
