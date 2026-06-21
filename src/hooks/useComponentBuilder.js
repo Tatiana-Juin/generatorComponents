@@ -41,6 +41,7 @@ export function useComponentBuilder() {
    
     }
 
+    // Fonction pour supprimer un block 
     function removeBlock(id){
       // pour filter les blocks par rapport a id 
       const newBlocks = block.filter(b => b.id !== id);
@@ -80,6 +81,7 @@ export function useComponentBuilder() {
 
     }
 
+    
  return {
     selectedIdComponent,
     setSelectedIdComponent,
