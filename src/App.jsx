@@ -33,7 +33,7 @@ export default function App() {
           moveUp = {moveUp}
           moveDown={moveDown}
         />
-        {/* <Preview selectedIdComponent={selectedIdComponent} block={block} /> */}
+      
 
       </main>
     </>
