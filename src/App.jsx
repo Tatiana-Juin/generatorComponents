@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Sidebar from './features/sidebar/Sidebar';
 import Canvas from './features/canvas/Canvas';
 import Preview from './features/preview/Preview';
-Preview
+
  
 export default function App() {
   const {
@@ -32,6 +32,11 @@ export default function App() {
           removeBlock={removeBlock}
           moveUp = {moveUp}
           moveDown={moveDown}
+        />
+        
+        <Preview 
+          selectedIdComponent={selectedIdComponent} 
+          block={block} 
         />
       
 
