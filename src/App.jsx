@@ -10,7 +10,9 @@ export default function App() {
     block,
     errors,
     handleClick,
-    removeBlock
+    removeBlock,
+    moveUp,
+    moveDown
   } = useComponentBuilder();
  
   return (
@@ -26,6 +28,8 @@ export default function App() {
           block={block}
           errors={errors}
           removeBlock={removeBlock}
+          moveUp = {moveUp}
+          moveDown={moveDown}
         />
       </main>
     </>

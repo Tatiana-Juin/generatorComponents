@@ -46,6 +46,39 @@ export function useComponentBuilder() {
       const newBlocks = block.filter(b => b.id !== id);
       setBlock(newBlocks);
     }
+    // FOCTION POUR MONTER 
+    function moveUp(id){
+      // pour recuperer index du block 
+      let  blockIndex = block.findIndex(b => b.id === id);
+      
+      // si le blockIndex n'est pas 0 on monte 
+      if(blockIndex === 0){
+        return;
+      }
+      const newIndex = blockIndex -1;
+      // copier le state 
+      const newBlocks = [...block];
+      // Pour l'echange 
+      [newBlocks[blockIndex], newBlocks[newIndex]] = [newBlocks[newIndex], newBlocks[blockIndex]];
+      // nouveau tableau pour le state 
+      setBlock(newBlocks);
+    }
+    // function pour descendre 
+    function moveDown(id){
+      let  blockIndex = block.findIndex(b => b.id === id);
+      // const newBlocks = [...blockIndex];
+
+      if(blockIndex ===block.length - 1){
+        return;
+      }
+
+      const newIndex = blockIndex +1;
+      const newBlocks = [...block];
+      [newBlocks[newIndex], newBlocks[blockIndex]] = [newBlocks[blockIndex], newBlocks[newIndex]];
+      setBlock(newBlocks);
+       
+
+    }
 
  return {
     selectedIdComponent,
@@ -54,5 +87,7 @@ export function useComponentBuilder() {
     errors,
     handleClick,
     removeBlock,
+    moveUp,
+    moveDown
   };
 }
