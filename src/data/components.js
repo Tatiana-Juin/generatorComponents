@@ -14,6 +14,7 @@ export const BLOCK_TYPES = [
   { type: 'link' },
   { type: 'input' },
   {type:'textarea'},
+  
 ];
 // BLOCK PAR DEFAUT SELON CE QUE L'ON SELECTIONNE
 export const DEFAULT_BLOCKS = {

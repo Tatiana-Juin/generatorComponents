@@ -20,6 +20,7 @@ function renderBlock(block){
             return <input type="text" name="" id="" disabled />  
         case 'textarea':
             return <textarea name="" id="">textarea</textarea>
+        
         default:
             return <p>Cela n'existe pas</p>
     }
