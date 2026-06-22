@@ -2,22 +2,24 @@ import { useState } from "react"
 function renderBlock(block){
     switch(block.type){
         case 'image':
-            return <img src="https://placehold.co/400x200" alt="image par defaut" />
+            return <img className="preview-image" src="https://placehold.co/400x200" alt="image par defaut" />
             
         case  'title' : 
-            return <h2>Titre par defaut </h2>
+            return <h2 className="preview-title">Titre par defaut </h2>
             
         case 'text' : 
-            return <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, ab!</p>
+            return <p className="preview-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, ab!</p>
             
         case 'button':
-            return <button>Bouton</button>
+            return <button className="preview-button">Bouton</button>
         case 'divider':
-             return <hr />
+             return <hr className="preview-divider" />
         case 'link':
-            return <a href="#">Lien</a> 
+            return <a className="preview-link" href="#">Lien</a> 
         case 'input':
             return <input type="text" name="" id="" disabled />  
+        case 'textarea':
+            return <textarea name="" id="">textarea</textarea>
         default:
             return <p>Cela n'existe pas</p>
     }
@@ -34,7 +36,7 @@ export default function Preview({selectedIdComponent,block}) {
 
   return (
     <div>
-        <button onClick={handleShow}>Preview</button>
+        <button className="btn-code" onClick={handleShow}>Preview</button>
         {showPreview ?(
             <div className={selectedIdComponent}>
         {block.map(b =>(

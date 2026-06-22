@@ -9,6 +9,7 @@
   --txt-lt: #94a3b8;
   --border: #e2e8f0;
   --border-foc: #c7d2fe;
+   --primary: #4f46e5;
   --sh-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --sh-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
@@ -183,4 +184,92 @@ aside h2:first-of-type {
 .btn-icon.delete:hover {
   background: #fef2f2; 
   color: #ef4444;
+}
+
+/* POUR LA PARTIE PREVIEW  */
+
+
+/* --- STRUCTURES DES GABARITS (Card et Form) --- */
+.card, .form {
+  padding: 1.5rem; 
+  margin-top: 1rem;
+  box-shadow: var(--sh-md); 
+  gap: 1rem;
+}
+/* Spécificité pour la carte : l'image se colle en haut sans bordure interne */
+.card { 
+  padding: 0; 
+  overflow: hidden; 
+}
+.card > div:not(:first-child) { 
+  padding: 0 1.5rem; 
+}
+.card > div:last-child { 
+  padding-bottom: 1.5rem; 
+}
+
+/* --- DESIGN DES ÉLÉMENTS INTERNES DU RENDU (renderBlock) --- */
+.preview-image {
+  width: 100%; 
+  height: 180px; 
+  object-fit: cover; 
+  display: block;
+}
+/* POUR LE TITRE */
+.preview-title {
+  font-size: 1.25rem; 
+  font-weight: 700; 
+  color: var(--txt-main);
+  margin-top: 0.5rem;
+}
+/* POUR LE TEXTE  */
+.preview-text {
+  font-size: 0.875rem; 
+  color: var(--txt-mut); 
+  line-height: 1.5;
+}
+/* POUR LE BOUTON  */
+.preview-button {
+  width: 100%; 
+  background: var(--primary); 
+  color: white;
+  border: none; 
+  padding: 0.75rem 1rem; 
+  border-radius: 0.5rem;
+  font-family: inherit; 
+  font-size: 0.875rem; 
+  font-weight: 600;
+  cursor: pointer; 
+  margin-top: 0.5rem;
+}
+  /* POUR LE DIVIDER */
+.preview-divider { 
+  border-top: 1px solid var(--border); 
+  width: 100%; 
+  margin: 15px 0 15px 0;
+}
+
+/* POUR LES LIENS  */
+.preview-link {
+  color: var(--primary); 
+  font-size: 0.875rem; 
+  font-weight: 600;
+  text-decoration: none; 
+  display: inline-block;
+}
+.preview-link:hover { 
+  text-decoration: underline; 
+}
+
+/* POUR LES INPUT */
+.card input[type="text"], .form input[type="text"], input[disabled] {
+  width: 100%; 
+  padding: 0.75rem 1rem; 
+  border: 1px solid var(--border);
+  border-radius: 0.5rem; 
+  background: var(--bg-body); 
+  color: var(--txt-main);
+  font-family: inherit; 
+  font-size: 0.875rem; 
+  outline: none;
 }
