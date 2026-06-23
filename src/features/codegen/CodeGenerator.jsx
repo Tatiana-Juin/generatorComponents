@@ -24,12 +24,27 @@ function generateCode(block) {
       return '';
   }
 }
-export default function CodeGenerator({block}) {
+export default function CodeGenerator({block,onGenerate}) {
   return (
-    <pre>
-     <code>
-        {block.map(b =>generateCode(b)).join("\n")}
-      </code>
-    </pre>
+  
+    <div className="popup-overlay">
+      <div className="popup-content">
+        
+        <div className="popup-header">
+          <h2>Code Généré</h2>
+          {/* Un petit bouton pour fermer la pop-up */}
+          <button className="close-btn" onClick={onGenerate}>✕</button>
+        </div>
+
+        <div className="popup-body">
+          <pre className="code-box">
+           <code>
+              {block.map(b => generateCode(b)).join("\n")}
+            </code>
+          </pre>
+        </div>
+
+      </div>
+    </div>
   )
 }

@@ -21,7 +21,7 @@ export default function App() {
   
   // POUR AFFICHER OU NON LE CODE GENERER
   const [showCodeGen,setShowCodeGen] = useState(false);
-  // Pour affiche ou pas le code 
+  // Pour affiche ou pas la fenetre de code 
   function onGenerate(){
     setShowCodeGen(!showCodeGen);
   }
@@ -48,7 +48,7 @@ export default function App() {
           block={block} 
         />
 
-         {showCodeGen && <CodeGenerator block={block} />}
+         {showCodeGen && <CodeGenerator block={block} onGenerate={onGenerate} />}
 
       </main>
      
