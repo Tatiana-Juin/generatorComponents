@@ -47,10 +47,11 @@ export default function App() {
           selectedIdComponent={selectedIdComponent} 
           block={block} 
         />
-      
+
+         {showCodeGen && <CodeGenerator block={block} />}
 
       </main>
-      {showCodeGen && <CodeGenerator block={block} />}
+     
     </>
   );
 }
