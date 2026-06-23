@@ -3,6 +3,8 @@ import Header from './components/Header/Header';
 import Sidebar from './features/sidebar/Sidebar';
 import Canvas from './features/canvas/Canvas';
 import Preview from './features/preview/Preview';
+import { useState } from 'react';
+import CodeGenerator from './features/codegen/CodeGenerator';
 
  
 export default function App() {
@@ -16,11 +18,18 @@ export default function App() {
     moveUp,
     moveDown
   } = useComponentBuilder();
- 
+  
+  // POUR AFFICHER OU NON LE CODE GENERER
+  const [showCodeGen,setShowCodeGen] = useState(false);
+  // Pour affiche ou pas le code 
+  function onGenerate(){
+    setShowCodeGen(!showCodeGen);
+  }
   return (
     <>
-      <Header />
+      <Header onGenerate={onGenerate}/>
       <main>
+        
         <Sidebar
           onSelect={setSelectedIdComponent}
           onAdd={handleClick}
@@ -41,6 +50,7 @@ export default function App() {
       
 
       </main>
+      {showCodeGen && <CodeGenerator block={block} />}
     </>
   );
 }

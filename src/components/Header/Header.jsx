@@ -1,5 +1,6 @@
 
 export default function Header({onGenerate }) {
+  
   return (
     <div>
         <header className='header'>

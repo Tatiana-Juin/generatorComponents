@@ -21,10 +21,13 @@ function renderBlock(block){
         case 'textarea':
             return <textarea name="" id="">textarea</textarea>
         
+        case 'label':
+            return <label htmlFor="">Label</label>
         default:
             return <p>Cela n'existe pas</p>
     }
 }
+
 
 export default function Preview({selectedIdComponent,block}) {
 
