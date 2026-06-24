@@ -1,10 +1,10 @@
-import {generateCode} from "./generators";
+import {generateCode,generateCodeCss} from "./generators";
 
 
 
 export default function CodeGenerator({block,onGenerate}) {
   const generatedCode = block.map(b => generateCode(b)).join("\n");
-
+  const generatedCodeCss = generateCodeCss(block)
   // fonction pour copier 
   function handleCopy(){
     navigator.clipboard.writeText(generatedCode);
@@ -26,6 +26,11 @@ export default function CodeGenerator({block,onGenerate}) {
           <pre className="code-box">
            <code>
               {generatedCode}
+            </code>
+          </pre>
+           <pre className="code-box">
+           <code>
+              {generatedCodeCss}
             </code>
           </pre>
         </div>
