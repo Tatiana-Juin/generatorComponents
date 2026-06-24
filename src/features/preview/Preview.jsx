@@ -19,7 +19,7 @@ function renderBlock(block){
         case 'input':
             return <input type="text" name="" id="" disabled />  
         case 'textarea':
-            return <textarea name="" id="">textarea</textarea>
+            return <textarea name="" id="" disabled>textarea</textarea>
         
         case 'label':
             return <label htmlFor="">Label</label>
