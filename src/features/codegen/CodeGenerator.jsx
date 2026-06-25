@@ -1,14 +1,22 @@
 import {generateCode,generateCodeCss} from "./generators";
-
+import { useState } from "react";
 
 
 export default function CodeGenerator({block,onGenerate}) {
   const generatedCode = block.map(b => generateCode(b)).join("\n");
-  const generatedCodeCss = generateCodeCss(block)
+  const generatedCodeCss = generateCodeCss(block);
+  // Pour voir si on doit afficher le message pour de copie
+  const [copiedHtml, setCopiedHtml] = useState(false);
+  const [copiedCss, setCopiedCss] = useState(false);
+
   // fonction pour copier 
-  function handleCopy(generate){
+  function handleCopy(generate, setCopied){
     navigator.clipboard.writeText(generate);
-  
+    setCopied(true)
+    setTimeout(()=>{
+      setCopied(false)
+    },3000);
+    
   }
   return (
   
@@ -24,7 +32,11 @@ export default function CodeGenerator({block,onGenerate}) {
 
         <div className="popup-body">
           <h3>HTML</h3>
-          <button className="preview-button" onClick={() => handleCopy(generatedCode)}> Copier</button>
+           {copiedHtml && (
+            <p>Code copier</p>
+          )}
+          <button className="preview-button" onClick={() => handleCopy(generatedCode,setCopiedHtml)}> Copier</button>
+         
           <pre className="code-box">
            <code>
               {generatedCode}
@@ -33,7 +45,11 @@ export default function CodeGenerator({block,onGenerate}) {
           {/* POUR LE CSS  */}
           <h3>CSS</h3>
           {/* BOUTON POUR LE CSS */}
-          <button className="preview-button" onClick={() => handleCopy(generatedCodeCss)} > Copier</button>
+          {copiedCss && (
+            <p>Code copier </p>
+          )}
+          <button className="preview-button" onClick={() => handleCopy(generatedCodeCss,setCopiedCss)} > Copier</button>
+          
            <pre className="code-box">
            <code>
               {generatedCodeCss}
