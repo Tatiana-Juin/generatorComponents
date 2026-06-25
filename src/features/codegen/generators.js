@@ -27,7 +27,7 @@
 // POUR LE CSS 
 export const CSS_RULES = {
   image:`.preview-image {width: 100%; height: 180px; object-fit: cover; display: block;}`,
-  title:`.preview-title {font-size: 1.25rem; font-weight: 700;color: #94a3b8;margin-top: 0.5rem;}`,
+  title:`.preview-title {font-size: 1.25rem; font-weight: 700;color: #1e293b;margin-top: 0.5rem;}`,
   text:`.preview-text {font-size: 0.875rem; color: #64748b; line-height: 1.5;}`,
   button:`.preview-button {width: 100%; background: #4f46e5; color: white;border: none; padding: 0.75rem 1rem; border-radius: 0.5rem;font-family: inherit; font-size: 0.875rem; font-weight: 600;cursor: pointer; margin-top: 0.5rem;}`,
   divider:`.preview-divider {border: none; border-top: 1px solid #e2e8f0; width: 100%;  margin: 0.5rem 0;}`,
