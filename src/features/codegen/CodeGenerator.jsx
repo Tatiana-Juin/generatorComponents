@@ -33,7 +33,7 @@ export default function CodeGenerator({block,onGenerate}) {
         <div className="popup-body">
           <h3>HTML</h3>
            {copiedHtml && (
-            <p>Code copier</p>
+            <p className="message-copied">Code copier</p>
           )}
           <button className="preview-button" onClick={() => handleCopy(generatedCode,setCopiedHtml)}> Copier</button>
          
@@ -46,7 +46,7 @@ export default function CodeGenerator({block,onGenerate}) {
           <h3>CSS</h3>
           {/* BOUTON POUR LE CSS */}
           {copiedCss && (
-            <p>Code copier </p>
+            <p className="message-copied">Code copier </p>
           )}
           <button className="preview-button" onClick={() => handleCopy(generatedCodeCss,setCopiedCss)} > Copier</button>
           
