@@ -42,7 +42,7 @@ export default function Preview({selectedIdComponent,block}) {
     <div>
         <button className="btn-code" onClick={handleShow}>Preview</button>
         {showPreview ?(
-            <div className={selectedIdComponent}>
+            <div class={selectedIdComponent}>
         {block.map(b =>(
             <div key={b.id}>
                 {renderBlock(b)}
