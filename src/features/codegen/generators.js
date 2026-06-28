@@ -37,15 +37,19 @@ export const CSS_RULES = {
 
 // POUR LA CARD ET LE FORMULAIRE
 export const  CONTAINER_CSS_RULES = {
-  card: `.card {padding: 1.5rem; margin-top: 1rem;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); gap: 1rem;  overflow: hidden;} .card > div:not(:first-child) { padding: 0 1.5rem; } .card > div:last-child { padding-bottom: 1.5rem; }`,
+  card: `.card {padding: 1.5rem; margin-top: 1rem;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); gap: 1rem;  overflow: hidden; max-width: 500px;} .card > div:not(:first-child) { padding: 0 1.5rem; } .card > div:last-child { padding-bottom: 1.5rem; }`,
   form:`.form { padding: 1.5rem; margin-top: 1rem;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); gap: 1rem;}`
 }
 
-export function generateCodeCss(block){
+export function generateCodeCss(block,selectedIdComponent){
   const typesAvecDoublons = block.map(b => b.type);
   const typeUnique = [...new Set(typesAvecDoublons)];
-  const regleCss = typeUnique.map(type => CSS_RULES[type]) 
-  const cssFinal = regleCss.join("\n");
+  const regleCss = typeUnique.map(type => CSS_RULES[type]);
+  // pour recuperer soit card ou formulaire
+  const containerCSS = CONTAINER_CSS_RULES[selectedIdComponent];
+  // pour creer un nouvelle objet avec pour le css 
+  const finale = [...regleCss,containerCSS];
+  const cssFinal = finale.join("\n");
   return cssFinal;
 }
 

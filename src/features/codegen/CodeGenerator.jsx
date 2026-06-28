@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function CodeGenerator({block,onGenerate,selectedIdComponent }) {
 
   const generatedCode = block.map(b => generateCode(b)).join("\n");
-  const generatedCodeCss = generateCodeCss(block);
+  const generatedCodeCss = generateCodeCss(block,selectedIdComponent);
     const generatedCodeWithWrapper = `<div className="${selectedIdComponent}">\n${generatedCode}\n</div>`;
   // Pour voir si on doit afficher le message pour de copie
   const [copiedHtml, setCopiedHtml] = useState(false);
@@ -37,11 +37,11 @@ export default function CodeGenerator({block,onGenerate,selectedIdComponent }) {
            {copiedHtml && (
             <p className="message-copied">Code copier</p>
           )}
-          <button className="preview-button" onClick={() => handleCopy(generatedCode,setCopiedHtml)}> Copier</button>
+          <button className="preview-button" onClick={() => handleCopy(generatedCodeWithWrapper,setCopiedHtml)}> Copier</button>
          
           <pre className="code-box">
            <code>
-              {generatedCode}
+              {generatedCodeWithWrapper}
             </code>
           </pre>
           {/* POUR LE CSS  */}
