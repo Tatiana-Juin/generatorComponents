@@ -35,6 +35,12 @@ export const CSS_RULES = {
   input:`.preview-input{width: 100%; padding: 0.75rem 1rem; border: 1px solid #e2e8f0;border-radius: 0.5rem; background: #f8fafc; color: #1e293b;font-family: inherit; font-size: 0.875rem; outline: none;}`,
 };
 
+// POUR LA CARD ET LE FORMULAIRE
+export const  CONTAINER_CSS_RULES = {
+  card: `.card {padding: 1.5rem; margin-top: 1rem;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); gap: 1rem;  overflow: hidden;} .card > div:not(:first-child) { padding: 0 1.5rem; } .card > div:last-child { padding-bottom: 1.5rem; }`,
+  form:`.form { padding: 1.5rem; margin-top: 1rem;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); gap: 1rem;}`
+}
+
 export function generateCodeCss(block){
   const typesAvecDoublons = block.map(b => b.type);
   const typeUnique = [...new Set(typesAvecDoublons)];
@@ -42,3 +48,4 @@ export function generateCodeCss(block){
   const cssFinal = regleCss.join("\n");
   return cssFinal;
 }
+

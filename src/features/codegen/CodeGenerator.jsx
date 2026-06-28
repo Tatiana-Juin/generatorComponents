@@ -2,9 +2,11 @@ import {generateCode,generateCodeCss} from "./generators";
 import { useState } from "react";
 
 
-export default function CodeGenerator({block,onGenerate}) {
+export default function CodeGenerator({block,onGenerate,selectedIdComponent }) {
+
   const generatedCode = block.map(b => generateCode(b)).join("\n");
   const generatedCodeCss = generateCodeCss(block);
+    const generatedCodeWithWrapper = `<div className="${selectedIdComponent}">\n${generatedCode}\n</div>`;
   // Pour voir si on doit afficher le message pour de copie
   const [copiedHtml, setCopiedHtml] = useState(false);
   const [copiedCss, setCopiedCss] = useState(false);

@@ -48,7 +48,7 @@ export default function App() {
           block={block} 
         />
 
-         {showCodeGen && <CodeGenerator block={block} onGenerate={onGenerate} />}
+         {showCodeGen && <CodeGenerator block={block} onGenerate={onGenerate} selectedIdComponent ={selectedIdComponent } />}
 
       </main>
      
