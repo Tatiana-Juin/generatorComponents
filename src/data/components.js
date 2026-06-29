@@ -25,13 +25,11 @@ export const DEFAULT_BLOCKS = {
     { id: 4, type: 'button' },
   ],
   form: [
-    { id: 1, type: 'title' },
-    { id: 2, type: 'text' },
+    {id: 1, type:'label'},
+    { id: 2, type: 'input' },
     {id: 3, type:'label'},
     { id: 4, type: 'input' },
-    {id: 5, type:'label'},
-    { id: 6, type: 'input' },
-    { id: 7, type: 'button' },
+    { id: 5, type: 'button' },
   ],
 
 };

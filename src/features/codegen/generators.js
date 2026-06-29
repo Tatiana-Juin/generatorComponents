@@ -123,3 +123,15 @@ export function generateCodeCss(block,selectedIdComponent){
   return cssFinal;
 }
 
+export function wrapWithContainer(generatedCode, selectedIdComponent){
+
+  switch (selectedIdComponent) {
+    case 'card':
+      return `<div class="card">\n${generatedCode}\n</div>`;
+    case 'form':
+      return `<div class="form">\n<form method="">\n${generatedCode}\n</form>\n</div>`;
+    default:
+      return `Il a une erreur `;
+  }
+}
+
