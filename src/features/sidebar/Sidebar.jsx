@@ -1,3 +1,4 @@
+import "./sidebar.css";
 import ComponentSelector from "./ComponentSelector";
 import BlockPalette from "./BlockPalette";
  

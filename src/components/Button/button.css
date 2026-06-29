@@ -1,0 +1,17 @@
+.btn-components {
+  width: 100%; 
+  padding: 0.75rem 1rem; 
+  margin-bottom: 0.75rem;
+  color: var(--txt-main); 
+  font: inherit; 
+  font-size: 0.875rem;
+  font-weight: 500; 
+  cursor: pointer;
+   
+}
+.btn-components:hover { 
+  background: #f8fafc; 
+  border-color: #cbd5e1; 
+  box-shadow: var(--sh-sm); 
+  transform: translateY(-1px); 
+}

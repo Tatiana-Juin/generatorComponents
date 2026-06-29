@@ -1,3 +1,4 @@
+import "./canvas.css";
 import BlockItem from "./BlockItem";
  
 export default function Canvas({ selectedIdComponent, block, errors,removeBlock,moveUp,moveDown }) {
