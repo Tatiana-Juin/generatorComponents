@@ -1,3 +1,4 @@
+import "./codegen.css";
 import {generateCode,generateCodeCss,wrapWithContainer} from "./generators";
 import { useState } from "react";
 

@@ -1,3 +1,4 @@
+import './preview.css';
 import { useState } from "react"
 function renderBlock(block){
     switch(block.type){

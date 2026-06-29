@@ -8,6 +8,12 @@
   font-weight: 700; 
   margin-bottom: 1.5rem; 
 }
+/* État vide ("Clique sur Preview pour voir le résultat") */
+.blockDefault p:not(.preview-text) {
+  font-size: 0.875rem; 
+  color: var(--txt-mut); 
+  font-style: italic;
+}
 
 /* CSS FICHIER BlockItem */
 .oneBlock {
@@ -51,4 +57,34 @@
 .btn-icon.delete:hover { 
   background: #fef2f2; 
   color: #ef4444; 
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+   .blockDefault {
+    padding: 1.5rem;
+    width: 100%;
+    flex: none;
+  }
+
+  .blockDefault h2 {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .oneBlock {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+   .blockDefault {
+    padding: 1rem;
+  }
+
+  .oneBlock {
+    font-size: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
 }
