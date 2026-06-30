@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { DEFAULT_BLOCKS } from "../data/components";
 export function useComponentBuilder() {
      // recuperer id de l'element, components
-     const [selectedIdComponent, setSelectedIdComponent] = useState("");
+     const [selectedIdComponent, setSelectedIdComponent] = useState("card");
     
       // Pour ajouter un block 
       const [block,setBlock] = useState([]);

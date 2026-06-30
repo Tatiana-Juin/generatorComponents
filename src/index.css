@@ -53,8 +53,6 @@ body {
   max-width: 42rem; 
 }
 
-
-
 /* --- BOUTONS --- */
 .btn-code {
   gap: 0.5rem; 
@@ -79,8 +77,6 @@ main {
   height: calc(100vh - 73px); 
 }
 
-
-
 /* Bouton d'activation "Preview" */
 .blockDefault button:not(.btn-icon):not(.preview-button) {
   background: var(--bg-surf); 
@@ -100,8 +96,6 @@ main {
   background: var(--bg-body); 
   border-color: var(--txt-lt);
 }
-
-
 
 /* --- ========================================== --- */
 /* ---             ADAPTATION MOBILE & TABLETTE   --- */
